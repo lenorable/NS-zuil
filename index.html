@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+    deze file word de main-frame for me GUI, en zal voor alle 3 de applicaties het frame bevatten! 
+-->
+<html>
+    <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
+    <script>
+        function zuil(){
+            var x = "choi"
+            new QWebChannel(qt.webChannelTransport, function(channel) {
+            var backend = channel.objects.backend;
+            backend.getRef(x, function(pyval) {
+            document.getElementById("body").innerHTML = "<h1>" + pyval +"</h1>";
+            });
+            });
+        }
+    </script>
+    <style>
+
+    </style>
+    <head>
+        <title>NS</title>
+    </head>
+    <body id="body">
+        <h1>Open dit alleen met het bijhorende python framework</h1>
+        <script>
+            document.onload = zuil();
+        </script>
+    </body>
+</html>
