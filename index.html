@@ -4,14 +4,14 @@
 -->
 <html>
     <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
+    <script type="text/javascript" src="index.js"></script>
     <script>
         function zuil(){
-            var x = "choi"
             new QWebChannel(qt.webChannelTransport, function(channel) {
             var backend = channel.objects.backend;
-            backend.getRef(x, function(pyval) {
-            document.getElementById("body").innerHTML = "<h1>" + pyval +"</h1>";
-            });
+                backend.welkscherm(function(pyval) {
+                    document.getElementById("body").innerHTML = pyval
+                });
             });
         }
     </script>

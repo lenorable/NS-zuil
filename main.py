@@ -14,10 +14,37 @@ from PyQt5.QtWebChannel import *
 usecase = ""
 
 class Backend(QtCore.QObject):
-    @QtCore.pyqtSlot(str, result=str)
-    def getRef(self, x):
-        print(usecase)
-        return usecase
+    @QtCore.pyqtSlot(result=str)
+    def welkscherm(self):
+        if usecase == "F":
+            code = """
+                <input type="text" maxlength="140" placeholder="feedback Max. 140 letters" id="feedback"></input>
+                <input type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam"></input>
+                <button onclick="stuur()">zend</button>
+            """
+            return code
+        elif usecase == "M":
+            code = """
+                <input type="text" maxlength="140" placeholder="feedback Max. 140 letters" id="feedback"></input>
+                <input type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam"></input>
+                <button onclick="stuur()">zend</button>
+            """
+            return code
+        elif usecase == "S":
+            code = """
+                <input type="text" maxlength="140" placeholder="feedback Max. 140 letters" id="feedback"></input>
+                <input type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam"></input>
+                <button onclick="stuur()">zend</button>
+            """
+            return code
+        else:
+            return "<h1>Herstart en maak opnieuw een keuze <h1>"
+
+
+    @QtCore.pyqtSlot(str, str, result=str)
+    def sendfeedback(self, feedback, naam):
+        print(Zuil.inputs(feedback, naam))
+        return "data saved"
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -45,12 +72,12 @@ app = QApplication(sys.argv)
 
 usecase = input("komt u: Feedback geven ('F'), Moderen ('M'), of een scherm opstarten(S)? ")
 
-if usecase == "F":
-    inputs = Zuil.inputs()
-elif usecase == "M":
-    print("new")
-elif usecase == "S":
-    print("new")
+#if usecase == "F":
+#    inputs = Zuil.inputs()
+#elif usecase == "M":
+#    print("new")
+#elif usecase == "S":
+#    print("new")
 
 windowM = MainWindow()
 windowM.setWindowTitle("")
