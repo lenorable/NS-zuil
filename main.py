@@ -18,9 +18,15 @@ class Backend(QtCore.QObject):
     def welkscherm(self):
         if usecase == "F":
             code = """
-                <input type="text" maxlength="140" placeholder="feedback Max. 140 letters" id="feedback"></input>
-                <input type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam"></input>
-                <button onclick="stuur()">zend</button>
+                <div class="div_zuil">
+                    <div class="formdiv">
+                        <textarea type="text" maxlength="140" placeholder="Feedback max. 140 letters" id="feedback" class="input_feedback"></textarea>
+                        <button class="input_naam_box"><textarea type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam" class="input_naam"></textarea></button>
+                        <button class="date_time" id="timedisplay"></button>
+
+                        <div class="input_enter"></div><div class="input_enter_back" id="input_enter_back"></div>     <button class="input_enter_overlay" onmouseleave="ns_button('out', 'input_enter_back')" onmouseover="ns_button('in', 'input_enter_back')" onclick="stuur()">verzend</button>
+                    </div>
+                </div>
             """
             return code
         elif usecase == "M":

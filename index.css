@@ -1,0 +1,160 @@
+.div_zuil{
+    background-color: rgba(230, 230, 230, 1);
+    background-image: url("./photos/station_BG.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+}
+
+.div_zuil .formdiv{
+    background-color: rgba(255, 201, 23, 1);
+    width: 100%;
+    height: 50%;
+    position: fixed;
+    left: 0%;
+    top: 10%;
+    border-radius: none;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+}
+
+.div_zuil .input_feedback{
+    background-color: rgba(255, 255, 255, 1);
+    width: 40%;
+    height: 60%;
+    position: absolute;
+    left: 7.5%;
+    top: 20%;
+    border-radius: 0.5vh;
+    z-index: 1;
+    overflow: hidden;
+    border: solid rgba(255, 255, 255, 1) 2px;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    resize: none;
+}
+
+.div_zuil .input_feedback:hover{
+    border: solid rgba(0, 92, 160, 1) 2px;
+}
+
+.div_zuil .input_naam_box{
+    background-color: rgba(255, 255, 255, 1);
+    width: 40%;
+    height: 20%;
+    position: absolute;
+    left: 52.5%;
+    top: 20%;
+    border-radius: 0.5vh;
+    z-index: 1;
+    overflow: hidden;
+    border: solid rgba(255, 255, 255, 1) 2px;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    resize: none;
+}
+
+.div_zuil .input_naam{
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    border-radius: 0.5vh;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    resize: none;
+}
+
+.div_zuil .input_naam_box:hover{
+    border: solid rgba(0, 92, 160, 1) 2px;
+}
+
+.div_zuil .date_time{
+    background-color: rgba(255, 255, 255, 1);
+    width: 40%;
+    height: 20%;
+    position: absolute;
+    left: 52.5%;
+    top: 45%;
+    border-radius: 0.5vh;
+    z-index: 1;
+    overflow: hidden;
+    border: solid rgba(255, 255, 255, 1) 2px;
+    outline: none;
+    padding: none;
+    margin: 0px;
+}
+
+.div_zuil .input_enter_overlay{
+    background-color: rgba(0, 0, 0, 0);
+    width: 40%;
+    height: 10%;
+    position: absolute;
+    left: 52.5%;
+    top: 70%;
+    border-radius: 0.5vh;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    color: white;
+    cursor: pointer;
+}
+
+.div_zuil .input_enter{
+    background-color: rgba(0, 99, 211, 1);
+    width: 40%;
+    height: 10%;
+    position: absolute;
+    left: 52.5%;
+    top: 70%;
+    border-radius: 0.5vh;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    border-bottom: solid rgba(0, 92, 160, 1) 0.3vh;
+}
+
+.div_zuil .input_enter_back{
+    background-color: rgba(0, 92, 160, 1);
+    width: 40%;
+    height: 0%;
+    position: absolute;
+    left: 52.5%;
+    bottom: 20%;
+    border-radius: 0.5vh;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    transition: height 0.2s;
+}

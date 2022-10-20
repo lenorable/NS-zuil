@@ -3,8 +3,10 @@
     deze file word de main-frame for me GUI, en zal voor alle 3 de applicaties het frame bevatten! 
 -->
 <html>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
     <script>
 
     </script>
@@ -19,10 +21,16 @@
 
 
 
-    <body id="body">
-        <input type="text" maxlength="140" placeholder="feedback Max. 140 letters" id="feedback"></input>
-        <input type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam"></input>
-        <button onclick="stuur()">zend</button>
+    <body id="body" style="font-family: 'Open Sans';">
+        <div class="div_zuil" onmouseover="start()">
+            <div class="formdiv">
+                <textarea type="text" maxlength="140" placeholder="Feedback max. 140 letters" id="feedback" class="input_feedback"></textarea>
+                <button class="input_naam_box"><textarea type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam" class="input_naam"></textarea></button>
+                <button class="date_time" id="timedisplay"></button>
+
+                <div class="input_enter"></div><div class="input_enter_back" id="input_enter_back"></div>     <button class="input_enter_overlay" onmouseleave="ns_button('out', 'input_enter_back')" onmouseover="ns_button('in', 'input_enter_back')" onclick="stuur()">verzend</button>
+            </div>
+        </div>
     </body>
 
 
