@@ -19,14 +19,22 @@ class Backend(QtCore.QObject):
         if usecase == "F":
             code = """
                 <div class="div_zuil">
-                    <div class="formdiv">
-                        <textarea type="text" maxlength="140" placeholder="Feedback max. 140 letters" id="feedback" class="input_feedback"></textarea>
-                        <button class="input_naam_box"><textarea type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam" class="input_naam"></textarea></button>
-                        <button class="date_time" id="timedisplay"></button>
-
-                        <div class="input_enter"></div><div class="input_enter_back" id="input_enter_back"></div>     <button class="input_enter_overlay" onmouseleave="ns_button('out', 'input_enter_back')" onmouseover="ns_button('in', 'input_enter_back')" onclick="stuur()">verzend</button>
-                    </div>
+                <div class="bg_image"></div>
+                <div class="menubar">
+                    <div class="nslogo"></div>
+                    <button>Info</button>
+                    <button>Privacy</button>
+                    <button>Contact</button>
+                    <button>Disclaimer</button>
                 </div>
+                <div class="formdiv">
+                    <textarea type="text" maxlength="140" placeholder="Feedback max. 140 letters" id="feedback" class="input_feedback"></textarea>
+                    <button class="input_naam_box"><textarea type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam" class="input_naam"></textarea></button>
+                    <button class="date_time" id="timedisplay"></button>
+
+                    <div class="input_enter"></div><div class="input_enter_back" id="input_enter_back"></div>     <button class="input_enter_overlay" onmouseleave="ns_button('out', 'input_enter_back')" onmouseover="ns_button('in', 'input_enter_back')" onclick="stuur()">verzend</button>
+                </div>
+            </div>
             """
             return code
         elif usecase == "M":
