@@ -49,3 +49,30 @@ function ns_button(task, id){
         document.getElementById(id).style.height = '0%';
     }
 }
+
+function info(){
+    closemenu();
+    document.getElementById("infodiv").style.height = "85%";
+}
+
+function privacy(){
+    closemenu();
+    document.getElementById("privacydiv").style.height = "85%";
+}
+
+function contact(){
+    closemenu();
+    document.getElementById("contactdiv").style.height = "85%";
+}
+
+function disclaimer(){
+    closemenu();
+    document.getElementById("disclaimerdiv").style.height = "85%";
+}
+
+function closemenu(){
+    document.getElementById("infodiv").style.height = "0%";
+    document.getElementById("privacydiv").style.height = "0%";
+    document.getElementById("contactdiv").style.height = "0%";
+    document.getElementById("disclaimerdiv").style.height = "0%";
+}
