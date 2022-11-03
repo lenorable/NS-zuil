@@ -1,4 +1,5 @@
 import Zuil
+import moderatie
 
 import sys
 import os

@@ -1,1 +1,1 @@
-SELECT * FROM bericht
+SELECT * from mod
