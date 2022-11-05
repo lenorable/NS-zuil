@@ -19,6 +19,7 @@ class Backend(QtCore.QObject):
     def welkscherm(self):
         if usecase == "F":
             code = """
+                <id id="id">F</id>
                 <div class="div_zuil">
                     <div class="bg_image"></div>
                     <div class="menubar">
@@ -40,6 +41,7 @@ class Backend(QtCore.QObject):
                     <div class="disclaimer" id="disclaimerdiv">
                         <div class="closebar"><button onclick="closemenu()"></button></div>
                     </div>
+
                     <div class="formdiv">
                         <textarea type="text" maxlength="140" placeholder="Feedback max. 140 letters" id="feedback" class="input_feedback"></textarea>
                         <button class="input_naam_box"><textarea type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam" class="input_naam"></textarea></button>
@@ -52,9 +54,30 @@ class Backend(QtCore.QObject):
             return code
         elif usecase == "M":
             code = """
-                <input type="text" maxlength="140" placeholder="feedback Max. 140 letters" id="feedback"></input>
-                <input type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam"></input>
-                <button onclick="stuur()">zend</button>
+                <div class="div_mod">
+                    <!-- <div class="bg_image"></div> -->
+                    <div class="menubar">
+                        <div class="nslogo"></div>
+                        <button onclick="info()">Info</button>
+                        <button onclick="privacy()">Privacy</button>
+                        <button onclick="contact()">Contact</button>
+                        <button onclick="disclaimer()">Disclaimer</button>
+                    </div>
+                    <div class="info" id="infodiv">
+                        <div class="closebar"><button onclick="closemenu()"></button></div>
+                    </div>
+                    <div class="privacy" id="privacydiv">
+                        <div class="closebar"><button onclick="closemenu()"></button></div>
+                    </div>
+                    <div class="contact" id="contactdiv">
+                        <div class="closebar"><button onclick="closemenu()"></button></div>
+                    </div>
+                    <div class="disclaimer" id="disclaimerdiv">
+                        <div class="closebar"><button onclick="closemenu()"></button></div>
+                    </div>
+
+                    <div class="worddiv">
+                    </div>
             """
             return code
         elif usecase == "S":

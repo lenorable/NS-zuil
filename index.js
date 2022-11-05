@@ -1,5 +1,12 @@
 function start(){
-    tijd()
+    pyval = document.getElementById("id").innerHTML;
+    if (pyval == "F"){
+        tijd();
+    } else if (pyval == "M"){
+        console.log(pyval);
+    } else if (pyval == "S"){
+
+    }
 }
 
 function tijd(){

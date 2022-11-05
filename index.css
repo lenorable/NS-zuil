@@ -350,5 +350,55 @@
 }
 
 /* moderatie -------------------------------------------------------*/
+.div_mod{
+    background-color: rgba(230, 230, 233, 1);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh
+}
+
+.div_mod .worddiv{
+    background-color: rgba(255, 201, 23, 1);
+    width: 100%;
+    height: 50%;
+    position: fixed;
+    left: 0%;
+    top: 30%;
+    border-radius: none;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh
+}
+
+.div_mod .berichtbubbel{
+    background-color: rgba(255, 255, 255, 1);
+    width: 80%;
+    height: 40%;
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    border-radius: 2vh;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh
+}
+
 
 /* scherm -------------------------------------------------------*/

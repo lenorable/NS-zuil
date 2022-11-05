@@ -22,9 +22,10 @@
 
 
     <body id="body" style="font-family: 'Open Sans';" onload="start()">
-        
-        <div class="div_zuil">
-            <div class="bg_image"></div>
+
+        <id id="id">M</id>
+        <div class="div_mod">
+            <!-- <div class="bg_image"></div> -->
             <div class="menubar">
                 <div class="nslogo"></div>
                 <button onclick="info()">Info</button>
@@ -44,12 +45,9 @@
             <div class="disclaimer" id="disclaimerdiv">
                 <div class="closebar"><button onclick="closemenu()"></button></div>
             </div>
-            <div class="formdiv">
-                <textarea type="text" maxlength="140" placeholder="Feedback max. 140 letters" id="feedback" class="input_feedback"></textarea>
-                <button class="input_naam_box"><textarea type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam" class="input_naam"></textarea></button>
-                <button class="date_time" id="timedisplay"></button>
 
-                <div class="input_enter"></div><div class="input_enter_back" id="input_enter_back"></div><button class="input_enter_overlay" onmouseleave="ns_button('out', 'input_enter_back')" onmouseover="ns_button('in', 'input_enter_back')" onclick="stuur()">verzend</button>
+            <div class="worddiv">
+                <div class="berichtbubbel"></div>
             </div>
         </div>
     </body>
