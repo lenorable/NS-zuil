@@ -24,42 +24,26 @@
 
     <body id="body" style="font-family: 'Open Sans';" >
 
-        <id id="id">M</id>
-        <div class="div_mod">
-            <!-- <div class="bg_image"></div> -->
-            <div class="menubar">
-                <div class="nslogo"></div>
-                <button onclick="info()">Info</button>
-                <button onclick="privacy()">Privacy</button>
-                <button onclick="contact()">Contact</button>
-                <button onclick="disclaimer()">Disclaimer</button>
-            </div>
-            <div class="info" id="infodiv">
-                <div class="closebar"><button onclick="closemenu()"></button></div>
-            </div>
-            <div class="privacy" id="privacydiv">
-                <div class="closebar"><button onclick="closemenu()"></button></div>
-            </div>
-            <div class="contact" id="contactdiv">
-                <div class="closebar"><button onclick="closemenu()"></button></div>
-            </div>
-            <div class="disclaimer" id="disclaimerdiv">
-                <div class="closebar"><button onclick="closemenu()"></button></div>
-            </div>
-
-            <div class="worddiv">
-                <div class="berichtbubbel" id="berichtbubbel"></div>
-                <div class="keuring_button_div">
-                    <button onclick="give_feedback(keuring=0, naam_mod='Admin')"><i class="fa-solid fa-xmark"></i></button>
-                    <button onclick="give_feedback(keuring=1, naam_mod='Admin')"><i class="fa-solid fa-check"></i></button>
-                </div>
+        <id id="id">S</id>
+        <div class="div_scherm_overlay" id="scherm_overlay">
+            <div class="formdiv">
+                <button class="text">kies uw station</button>
+                <button onclick="scherm_locatie(locatie='Utrecht')">Utrecht</button>
+                <button onclick="scherm_locatie(locatie='Zwolle')">Zwolle</button>
+                <button onclick="scherm_locatie(locatie='Den Haag')">Den Haag</button>
             </div>
         </div>
+        <div class="div_scherm">
+            <div class="bericht_div"></div>
+            <div class="trein_info_div"></div>
+            <button class="locatie_info" id="locatie_div"></button>
+            <div class="weer_info"></div>
+            <div class="faciliteit_info" id="faciliteit_id">
+            </div>
+        </div>
+
+
+
+
     </body>
-
-
-
-
-
-
 </html>

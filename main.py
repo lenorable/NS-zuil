@@ -90,9 +90,23 @@ class Backend(QtCore.QObject):
             return code
         elif usecase == "S":
             code = """
-                <input type="text" maxlength="140" placeholder="feedback Max. 140 letters" id="feedback"></input>
-                <input type="text" maxlength="8" placeholder="Naam of laat leeg" id="naam"></input>
-                <button onclick="stuur()">zend</button>
+                <id id="id">S</id>
+                <div class="div_scherm_overlay" id="scherm_overlay">
+                    <div class="formdiv">
+                        <button class="text">kies uw station</button>
+                        <button onclick="scherm_locatie(locatie='Utrecht')">Utrecht</button>
+                        <button onclick="scherm_locatie(locatie='Zwolle')">Zwolle</button>
+                        <button onclick="scherm_locatie(locatie='Den Haag')">Den Haag</button>
+                    </div>
+                </div>
+                <div class="div_scherm">
+                    <div class="bericht_div" id="check"></div>
+                    <div class="trein_info_div"></div>
+                    <button class="locatie_info" id="locatie_div"></button>
+                    <div class="weer_info"></div>
+                    <div class="faciliteit_info" id="faciliteit_id">
+                    </div>
+                </div>
             """
             return code
         else:
@@ -112,6 +126,11 @@ class Backend(QtCore.QObject):
     def give_feedback(self, keuring, mod_naam, bericht):
         print(str(keuring) + mod_naam + bericht)
         return moderatie.keuring(keuring, mod_naam, bericht)
+
+    @QtCore.pyqtSlot(str, result=str)
+    def get_faciliteiten(self, locatie_scherm):
+        print(str(scherm.get_faciliteiten(locatie_scherm)))
+        return scherm.get_faciliteiten(locatie_scherm)
 
 
 class MainWindow(QMainWindow):

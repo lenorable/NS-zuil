@@ -84,6 +84,8 @@ function closemenu(){
     document.getElementById("disclaimerdiv").style.height = "0%";
 }
 
+// functies voor moderatie ----------------------------------------------------------------------------------------------
+
 var curren_bericht = ""
 
 function get_bericht(){
@@ -97,14 +99,45 @@ function get_bericht(){
 }
 
 function give_feedback(keuring, naam_mod){
-
-    //document.getElementById('berichtbubbel').innerHTML = keuring + naam_mod + curren_bericht;
-
-
     new QWebChannel(qt.webChannelTransport, function(channel) {
         var backend = channel.objects.backend;
             backend.give_feedback(keuring, naam_mod, curren_bericht);
             get_bericht();
         });
 
+}
+
+// functies voor scherm ----------------------------------------------------------------------------------------------
+var locatie_scherm = ''
+
+function scherm_locatie(locatie){
+    locatie_scherm = locatie;
+    document.getElementById('scherm_overlay').style.height = "0%";
+    document.getElementById('locatie_div').innerHTML = locatie;
+    get_faciliteiten();
+}
+
+function get_faciliteiten(){
+    //locatie_scherm
+    //<button><img src="./icons/img_lift.png"></button>
+    antwoord = ''
+
+    new QWebChannel(qt.webChannelTransport, function(channel) {
+        var backend = channel.objects.backend;
+            backend.get_faciliteiten(locatie_scherm, function(pyval) {
+                antwoord = pyval;
+                antwoord = antwoord.split(",");
+
+                if (antwoord[0] == 'True'){
+                    document.getElementById('faciliteit_id').innerHTML = document.getElementById('faciliteit_id').innerHTML + "<button><img src='./icons/img_ovfiets.png'></button>";
+                } if (antwoord[1] == 'True'){
+                    document.getElementById('faciliteit_id').innerHTML = document.getElementById('faciliteit_id').innerHTML + "<button><img src='./icons/img_lift.png'></button>";
+                } if (antwoord[2] == 'True'){
+                    document.getElementById('faciliteit_id').innerHTML = document.getElementById('faciliteit_id').innerHTML + "<button><img src='./icons/img_toilet.png'></button>";
+                } if (antwoord[3] == 'True'){
+                    document.getElementById('faciliteit_id').innerHTML = document.getElementById('faciliteit_id').innerHTML + "<button><img src='./icons/img_pr.png'></button>";
+                }
+            
+            });
+        });
 }

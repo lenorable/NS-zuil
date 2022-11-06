@@ -437,3 +437,190 @@
 
 
 /* scherm -------------------------------------------------------*/
+.div_scherm_overlay{
+    background-color: rgba(230, 230, 233, 1);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 2;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+    transition: 1s;
+}
+
+.div_scherm_overlay .formdiv{
+    background-color: rgba(255, 201, 23, 1);
+    width: 50%;
+    height: 80%;
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    z-index: 2;
+    overflow: hidden;
+    border: none;
+    border-radius: 0.5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.div_scherm_overlay .formdiv .text{
+    background-color: rgba(255, 255, 255, 1);
+    width: 80%;
+    height: 20.625%;
+    position: relative;
+    left: 10%;
+    z-index: 2;
+    overflow: hidden;
+    border: none;
+    border-radius: 0.5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    margin-top: 5%;
+    font-size: 2vh;
+}
+
+.div_scherm_overlay .formdiv button{
+    background-color: rgba(255, 255, 255, 1);
+    width: 80%;
+    height: 20.625%;
+    position: relative;
+    left: 10%;
+    z-index: 2;
+    overflow: hidden;
+    border: none;
+    border-radius: 0.5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    margin-top: 2.5%;
+    font-size: 2vh;
+}
+
+.div_scherm{
+    background-color: rgba(230, 230, 233, 1);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.div_scherm .bericht_div{
+    background-color: rgba(255, 201, 23, 1);
+    width: 57.5%;
+    height: 77.5%;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.div_scherm .trein_info_div{
+    background-color: rgba(255, 255, 255, 1);
+    width: 30%;
+    height: 65%;
+    position: absolute;
+    left: 65%;
+    top: 5%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.div_scherm .locatie_info{
+    background-color: rgba(255, 255, 255, 1);
+    width: 30%;
+    height: 10%;
+    position: absolute;
+    left: 65%;
+    top: 72.5%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 3vh;
+}
+
+.div_scherm .weer_info{
+    background-color: rgba(255, 255, 255, 1);
+    width: 30%;
+    height: 10%;
+    position: absolute;
+    left: 65%;
+    top: 85%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.div_scherm .faciliteit_info{
+    background-color: rgba(0, 0, 0, 0);
+    width: 57.5%;
+    height: 10%;
+    position: absolute;
+    left: 5%;
+    top: 85%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.div_scherm .faciliteit_info button{
+    background-color: rgba(0, 0, 0, 0);
+    width: 11.5%;
+    height: 100%;
+    position: relative;
+    float: left;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    margin-right: 2.5%;
+    font-size: 2vh;
+}
+
+.div_scherm .faciliteit_info button img{
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+}
