@@ -79,7 +79,7 @@ class Backend(QtCore.QObject):
                     </div>
 
                     <div class="worddiv">
-                        <div class="berichtbubbel" id="berichtbubbel"></div>
+                        <button class="berichtbubbel" id="berichtbubbel"></button>
                         <div class="keuring_button_div">
                             <button onclick="give_feedback(keuring=0, naam_mod='Admin')"><i class="fa-solid fa-xmark"></i></button>
                             <button onclick="give_feedback(keuring=1, naam_mod='Admin')"><i class="fa-solid fa-check"></i></button>
@@ -174,13 +174,6 @@ class MainWindow(QMainWindow):
 app = QApplication(sys.argv)
 
 usecase = input("komt u: Feedback geven ('F'), Moderen ('M'), of een scherm opstarten(S)? ")
-
-#if usecase == "F":
-#    inputs = Zuil.inputs()
-#elif usecase == "M":
-#    print("new")
-#elif usecase == "S":
-#    print("new")
 
 windowM = MainWindow()
 windowM.setWindowTitle("")

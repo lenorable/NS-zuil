@@ -53,7 +53,6 @@
     outline: none;
     padding: none;
     margin: 0px;
-    cursor: pointer;
     font-size: 2vh;
 }
 
@@ -400,6 +399,10 @@
     font-size: 2vh;
 }
 
+.div_mod .berichtbubbel:hover{
+    border: solid rgba(0, 92, 160, 1) 2px;
+}
+
 .div_mod .keuring_button_div{
     background-color: rgba(0, 0, 0, 0);
     width: 80%;
@@ -419,7 +422,7 @@
 }
 
 .div_mod .keuring_button_div button{
-    background-color: rgb(180, 30, 30);
+    background-color: rgba(0, 99, 211, 1);
     width: 20%;
     height: 100%;
     position: relative;
@@ -432,9 +435,14 @@
     margin-left: 10%;
     margin-right: 10%;
     font-size: 2vh;
+    border-bottom: solid rgba(0, 92, 160, 1) 0.3vh;
     color: white;
+    cursor: pointer;
 }
 
+.div_mod .keuring_button_div button:hover{
+    background-color: rgba(0, 92, 160, 1);
+}
 
 /* scherm -------------------------------------------------------*/
 .div_scherm_overlay{
@@ -503,6 +511,7 @@
     margin: 0px;
     margin-top: 2.5%;
     font-size: 2vh;
+    cursor: pointer;
 }
 
 .div_scherm{
@@ -553,6 +562,7 @@
     margin: 0px;
     margin-top: 5%;
     font-size: 2vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .div_scherm .bericht_div .naamvak{

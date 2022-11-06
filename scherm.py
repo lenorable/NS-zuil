@@ -72,5 +72,3 @@ def get_trains(locatie):
         info_lst.append(lst_in_lst)
 
     return info_lst
-
-print(get_masseges(locatie="Utrecht"))

@@ -9,6 +9,43 @@ function start(){
     }
 }
 
+function info(){
+    closemenu();
+    document.getElementById("infodiv").style.height = "85%";
+}
+
+function privacy(){
+    closemenu();
+    document.getElementById("privacydiv").style.height = "85%";
+}
+
+function contact(){
+    closemenu();
+    document.getElementById("contactdiv").style.height = "85%";
+}
+
+function disclaimer(){
+    closemenu();
+    document.getElementById("disclaimerdiv").style.height = "85%";
+}
+
+function closemenu(){
+    document.getElementById("infodiv").style.height = "0%";
+    document.getElementById("privacydiv").style.height = "0%";
+    document.getElementById("contactdiv").style.height = "0%";
+    document.getElementById("disclaimerdiv").style.height = "0%";
+}
+
+function ns_button(task, id){
+    if (task == "in"){
+        document.getElementById(id).style.height = '10%';
+    }
+    else if (task == "out"){
+        document.getElementById(id).style.height = '0%';
+    }
+}
+
+// functies voor feedback ----------------------------------------------------------------------------------------------
 function tijd(){
     var tijd = new Date();
     var uurnormaal = tijd.getHours();
@@ -48,42 +85,6 @@ function stuur(){
     document.getElementById("naam").value = "";
 }
 
-function ns_button(task, id){
-    if (task == "in"){
-        document.getElementById(id).style.height = '10%';
-    }
-    else if (task == "out"){
-        document.getElementById(id).style.height = '0%';
-    }
-}
-
-function info(){
-    closemenu();
-    document.getElementById("infodiv").style.height = "85%";
-}
-
-function privacy(){
-    closemenu();
-    document.getElementById("privacydiv").style.height = "85%";
-}
-
-function contact(){
-    closemenu();
-    document.getElementById("contactdiv").style.height = "85%";
-}
-
-function disclaimer(){
-    closemenu();
-    document.getElementById("disclaimerdiv").style.height = "85%";
-}
-
-function closemenu(){
-    document.getElementById("infodiv").style.height = "0%";
-    document.getElementById("privacydiv").style.height = "0%";
-    document.getElementById("contactdiv").style.height = "0%";
-    document.getElementById("disclaimerdiv").style.height = "0%";
-}
-
 // functies voor moderatie ----------------------------------------------------------------------------------------------
 
 var curren_bericht = ""
@@ -108,12 +109,14 @@ function give_feedback(keuring, naam_mod){
 }
 
 // functies voor scherm ----------------------------------------------------------------------------------------------
-var locatie_scherm = ''
+var locatie_scherm = '';
+var berichten_fresh = '';
 
 function scherm_locatie(locatie){
     locatie_scherm = locatie;
     document.getElementById('locatie_div').innerHTML = locatie;
     get_faciliteiten();
+    setInterval(get_current_wheater, 60000);
 }
 
 function get_faciliteiten(){
@@ -135,20 +138,22 @@ function get_faciliteiten(){
                     document.getElementById('faciliteit_id').innerHTML = document.getElementById('faciliteit_id').innerHTML + "<button><img src='./icons/img_pr.png'></button>";
                 }
 
-                get_current_trains();
+                get_current_wheater();
             
             });
         });
 }
 
 function get_current_trains(){
+    document.getElementById("trein_info_id").innerHTML = '';
+
     new QWebChannel(qt.webChannelTransport, function(channel) {
         var backend = channel.objects.backend;
             backend.get_current_trains(locatie_scherm, function(pyval) {
                 antwoord = pyval;
 
                 for (let i = 0; i < pyval.length; i++) {
-                    pyval[i]
+                    //pyval[i];
 
                     base = "<div class='singel_train_div'><button class='soort'>";
 
@@ -158,7 +163,7 @@ function get_current_trains(){
                         base = base + "SPR</button><button class='orig'>";
                     }
 
-                    base = base + pyval[i][0]
+                    base = base + pyval[i][0];
 
                     if (pyval[i][2] == 'ON_STATION'){
                         base = base + "</button><button class='loc'><i class='fa-solid fa-location-dot'></i></button></div>";
@@ -169,7 +174,7 @@ function get_current_trains(){
                     document.getElementById("trein_info_id").innerHTML = document.getElementById("trein_info_id").innerHTML + base;
                 }
 
-                get_current_wheater();
+                get_berichten();
             });
         });
 }
@@ -184,24 +189,31 @@ function get_current_wheater(){
                 antwoord = antwoord.split(";");
 
                 document.getElementById('weer_graden_id').innerHTML = antwoord[0] + "\u00B0C " + antwoord[1];
-                get_berichten();
+                get_current_trains();
             });
         });
 }
 
-
 function get_berichten(){
+
     new QWebChannel(qt.webChannelTransport, function(channel) {
         var backend = channel.objects.backend;
             backend.get_berichten(locatie_scherm, function(pyval) {
+
+                if (pyval != berichten_fresh){
+
+                    document.getElementById('bericht_text_id').innerHTML = '';
                 
-                for (let i = 0; i < pyval.length; i++) {
-                    base = "<button class='textvak'>" + pyval[i][0] + "<div class='naamvak'> ~" + pyval[i][1] + "</div></button>";
+                    for (let i = 0; i < pyval.length; i++) {
+                        base = "<button class='textvak'>" + pyval[i][0] + "<div class='naamvak'> ~" + pyval[i][1] + "</div></button>";
 
-                    document.getElementById('bericht_text_id').innerHTML = document.getElementById('bericht_text_id').innerHTML + base;
-                }
+                        document.getElementById('bericht_text_id').innerHTML = document.getElementById('bericht_text_id').innerHTML + base;
+                    }
 
-                document.getElementById('scherm_overlay').style.height = "0%";
+                    berichten_fresh = pyval;
+                    document.getElementById('scherm_overlay').style.height = "0%";
+
+                };
             });
         });
 }
