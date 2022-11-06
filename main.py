@@ -1,5 +1,6 @@
 import Zuil
 import moderatie
+import scherm
 
 import sys
 import os
@@ -54,6 +55,7 @@ class Backend(QtCore.QObject):
             return code
         elif usecase == "M":
             code = """
+                <id id="id">M</id>
                 <div class="div_mod">
                     <!-- <div class="bg_image"></div> -->
                     <div class="menubar">
@@ -77,7 +79,13 @@ class Backend(QtCore.QObject):
                     </div>
 
                     <div class="worddiv">
+                        <div class="berichtbubbel" id="berichtbubbel"></div>
+                        <div class="keuring_button_div">
+                            <button onclick="give_feedback(keuring=0, naam_mod='Admin')"><i class="fa-solid fa-xmark"></i></button>
+                            <button onclick="give_feedback(keuring=1, naam_mod='Admin')"><i class="fa-solid fa-check"></i></button>
+                        </div>
                     </div>
+                </div>
             """
             return code
         elif usecase == "S":
@@ -95,6 +103,16 @@ class Backend(QtCore.QObject):
     def sendfeedback(self, feedback, naam):
         print(Zuil.inputs(feedback, naam))
         return "data saved"
+
+    @QtCore.pyqtSlot(result=str)
+    def get_bericht_between(self):
+        return moderatie.get_bericht()
+
+    @QtCore.pyqtSlot(int, str, str, result=str)
+    def give_feedback(self, keuring, mod_naam, bericht):
+        print(str(keuring) + mod_naam + bericht)
+        return moderatie.keuring(keuring, mod_naam, bericht)
+
 
 class MainWindow(QMainWindow):
     def __init__(self):

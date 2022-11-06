@@ -143,7 +143,7 @@
     outline: none;
     padding: none;
     margin: 0px;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .closebar button{
@@ -160,7 +160,7 @@
     outline: none;
     padding: none;
     margin: 0px;
-    font-size: 2vh
+    font-size: 2vh;
 }
 /* input zuil -------------------------------------------------------*/
 
@@ -177,7 +177,7 @@
     outline: none;
     padding: none;
     margin: 0px;
-    font-size: 2vh
+    font-size: 2vh;
 }
 .div_zuil .bg_image{
     width: 100%;
@@ -195,7 +195,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     filter: blur(3px);
-    font-size: 2vh
+    font-size: 2vh;
     }
 
 .div_zuil .formdiv{
@@ -212,7 +212,7 @@
     outline: none;
     padding: none;
     margin: 0px;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .div_zuil .input_feedback{
@@ -230,7 +230,7 @@
     padding: none;
     margin: 0px;
     resize: none;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .div_zuil .input_feedback:hover{
@@ -252,7 +252,7 @@
     padding: none;
     margin: 0px;
     resize: none;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .div_zuil .input_naam{
@@ -270,7 +270,7 @@
     padding: none;
     margin: 0px;
     resize: none;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .div_zuil .input_naam_box:hover{
@@ -291,7 +291,7 @@
     outline: none;
     padding: none;
     margin: 0px;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .div_zuil .input_enter_overlay{
@@ -310,7 +310,7 @@
     margin: 0px;
     color: white;
     cursor: pointer;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .div_zuil .input_enter{
@@ -328,7 +328,7 @@
     padding: none;
     margin: 0px;
     border-bottom: solid rgba(0, 92, 160, 1) 0.3vh;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .div_zuil .input_enter_back{
@@ -346,7 +346,7 @@
     padding: none;
     margin: 0px;
     transition: height 0.2s;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 /* moderatie -------------------------------------------------------*/
@@ -363,7 +363,7 @@
     outline: none;
     padding: none;
     margin: 0px;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .div_mod .worddiv{
@@ -380,7 +380,7 @@
     outline: none;
     padding: none;
     margin: 0px;
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .div_mod .berichtbubbel{
@@ -389,7 +389,7 @@
     height: 40%;
     position: absolute;
     left: 10%;
-    top: 5%;
+    top: 10%;
     border-radius: 2vh;
     z-index: 1;
     overflow: hidden;
@@ -397,7 +397,42 @@
     outline: none;
     padding: none;
     margin: 0px;
-    font-size: 2vh
+    font-size: 2vh;
+}
+
+.div_mod .keuring_button_div{
+    background-color: rgba(0, 0, 0, 0);
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    left: 10%;
+    top: 55%;
+    border-radius: 2vh;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+    text-align: center;
+}
+
+.div_mod .keuring_button_div button{
+    background-color: rgb(180, 30, 30);
+    width: 20%;
+    height: 100%;
+    position: relative;
+    border-radius: 2vh;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 2vh;
+    color: white;
 }
 
 

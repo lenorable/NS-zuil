@@ -30,7 +30,10 @@ def get_bericht():
     saves = cursor.fetchall()
     conn.close()
 
-    return saves[0][0]
+    if saves != []:
+        return saves[0][0]
+    else:
+        return "geen nieuwe berichten meer"
 
 def keuring(keuring, mod_naam, bericht):
     connection_string = "host='localhost' dbname='berichten' user='postgres' password='k6LfYEIszD1cOP29qTvx'"

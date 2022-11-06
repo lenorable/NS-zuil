@@ -4,6 +4,7 @@
 -->
 <html>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/76fa0e805d.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="index.css">
@@ -21,7 +22,7 @@
 
 
 
-    <body id="body" style="font-family: 'Open Sans';" onload="start()">
+    <body id="body" style="font-family: 'Open Sans';" >
 
         <id id="id">M</id>
         <div class="div_mod">
@@ -47,7 +48,11 @@
             </div>
 
             <div class="worddiv">
-                <div class="berichtbubbel"></div>
+                <div class="berichtbubbel" id="berichtbubbel"></div>
+                <div class="keuring_button_div">
+                    <button onclick="give_feedback(keuring=0, naam_mod='Admin')"><i class="fa-solid fa-xmark"></i></button>
+                    <button onclick="give_feedback(keuring=1, naam_mod='Admin')"><i class="fa-solid fa-check"></i></button>
+                </div>
             </div>
         </div>
     </body>

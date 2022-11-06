@@ -3,7 +3,7 @@ function start(){
     if (pyval == "F"){
         tijd();
     } else if (pyval == "M"){
-        console.log(pyval);
+        get_bericht();
     } else if (pyval == "S"){
 
     }
@@ -82,4 +82,29 @@ function closemenu(){
     document.getElementById("privacydiv").style.height = "0%";
     document.getElementById("contactdiv").style.height = "0%";
     document.getElementById("disclaimerdiv").style.height = "0%";
+}
+
+var curren_bericht = ""
+
+function get_bericht(){
+    new QWebChannel(qt.webChannelTransport, function(channel) {
+        var backend = channel.objects.backend;
+            backend.get_bericht_between(function(pyval) {
+                curren_bericht = pyval;
+                document.getElementById('berichtbubbel').innerHTML = curren_bericht;
+            });
+        });
+}
+
+function give_feedback(keuring, naam_mod){
+
+    //document.getElementById('berichtbubbel').innerHTML = keuring + naam_mod + curren_bericht;
+
+
+    new QWebChannel(qt.webChannelTransport, function(channel) {
+        var backend = channel.objects.backend;
+            backend.give_feedback(keuring, naam_mod, curren_bericht);
+            get_bericht();
+        });
+
 }
