@@ -50,3 +50,22 @@ def get_faciliteiten(locatie):
 
         fasiliteiten = "{},{},{},{}".format(str(colum[0]), str(colum[1]), str(colum[2]), str(colum[3]))
         return fasiliteiten
+
+def get_trains(locatie):
+    headers = {'Ocp-Apim-Subscription-Key': 'bd9ed5d96b0b439489775cf52b7dce8a'}
+    if locatie == "Utrecht":
+        resource_uri = "https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/arrivals?lang=nl&station=ut&maxJourneys=5"
+    if locatie == "Zwolle":
+        resource_uri = "https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/arrivals?lang=nl&station=zl&maxJourneys=5"
+    if locatie == "Den Haag":
+        resource_uri = "https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/arrivals?lang=nl&station=gvc&maxJourneys=5"
+    response = requests.get(resource_uri, headers=headers)
+    response_data = response.json()
+
+    info_lst = []
+
+    for items in response_data['payload']['arrivals']:
+        lst_in_lst = [str(items['origin']), str(items['trainCategory']), str(items['arrivalStatus'])]
+        info_lst.append(lst_in_lst)
+
+    return info_lst

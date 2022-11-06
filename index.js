@@ -5,7 +5,7 @@ function start(){
     } else if (pyval == "M"){
         get_bericht();
     } else if (pyval == "S"){
-
+        tijd();
     }
 }
 
@@ -112,15 +112,12 @@ var locatie_scherm = ''
 
 function scherm_locatie(locatie){
     locatie_scherm = locatie;
-    document.getElementById('scherm_overlay').style.height = "0%";
     document.getElementById('locatie_div').innerHTML = locatie;
     get_faciliteiten();
 }
 
 function get_faciliteiten(){
-    //locatie_scherm
-    //<button><img src="./icons/img_lift.png"></button>
-    antwoord = ''
+    var antwoord = '';
 
     new QWebChannel(qt.webChannelTransport, function(channel) {
         var backend = channel.objects.backend;
@@ -137,7 +134,60 @@ function get_faciliteiten(){
                 } if (antwoord[3] == 'True'){
                     document.getElementById('faciliteit_id').innerHTML = document.getElementById('faciliteit_id').innerHTML + "<button><img src='./icons/img_pr.png'></button>";
                 }
+
+                get_current_trains();
             
             });
         });
 }
+
+function get_current_trains(){
+    new QWebChannel(qt.webChannelTransport, function(channel) {
+        var backend = channel.objects.backend;
+            backend.get_current_trains(locatie_scherm, function(pyval) {
+                antwoord = pyval;
+
+                for (let i = 0; i < pyval.length; i++) {
+                    pyval[i]
+
+                    base = "<div class='singel_train_div'><button class='soort'>";
+
+                    if (pyval[i][1] == 'IC'){
+                        base = base + "IC</button><button class='orig'>";
+                    } else {
+                        base = base + "SPR</button><button class='orig'>";
+                    }
+
+                    base = base + pyval[i][0]
+
+                    if (pyval[i][2] == 'ON_STATION'){
+                        base = base + "</button><button class='loc'><i class='fa-solid fa-location-dot'></i></button></div>";
+                    } else {
+                        base = base + "</button><button class='loc'><i class='fa-solid fa-train-tram'></i></button></div>";
+                    }
+
+                    document.getElementById("trein_info_id").innerHTML = document.getElementById("trein_info_id").innerHTML + base;
+                }
+
+                get_current_wheater();
+            });
+        });
+}
+
+
+function get_current_wheater(){
+    new QWebChannel(qt.webChannelTransport, function(channel) {
+        var backend = channel.objects.backend;
+            backend.get_current_wheater(locatie_scherm, function(pyval) {
+                antwoord = pyval;
+
+                antwoord = antwoord.split(";");
+
+                document.getElementById('weer_graden_id').innerHTML = antwoord[0].slice(0,-3) + "\u00B0C " + antwoord[1];
+                document.getElementById('scherm_overlay').style.height = "0%";
+            });
+        });
+}
+
+
+

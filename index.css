@@ -531,6 +531,7 @@
     z-index: 1;
     overflow: hidden;
     border: none;
+    border-radius: 0.5vh;
     outline: none;
     padding: none;
     margin: 0px;
@@ -547,6 +548,7 @@
     z-index: 1;
     overflow: hidden;
     border: none;
+    border-radius: 0.5vh;
     outline: none;
     padding: none;
     margin: 0px;
@@ -563,6 +565,7 @@
     z-index: 1;
     overflow: hidden;
     border: none;
+    border-radius: 0.5vh;
     outline: none;
     padding: none;
     margin: 0px;
@@ -570,7 +573,7 @@
 }
 
 .div_scherm .weer_info{
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 0);
     width: 30%;
     height: 10%;
     position: absolute;
@@ -583,6 +586,38 @@
     padding: none;
     margin: 0px;
     font-size: 2vh;
+}
+
+.div_scherm .weer_info .tijd{
+    background-color: rgba(0, 0, 0, 0);
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 4vh;
+}
+
+.div_scherm .weer_info .weer_graden{
+    background-color: rgba(0, 0, 0, 0);
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    left: 40%;
+    top: 0%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 4vh;
 }
 
 .div_scherm .faciliteit_info{
@@ -623,4 +658,73 @@
     left: 0%;
     top: 0%;
     position: absolute;
+}
+
+
+.div_scherm .trein_info_div .singel_train_div{
+    background-color: rgba(0, 48, 130, 1);
+    width: 90%;
+    height: 16%;
+    position: relative;
+    left: 5%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    border-radius: 4vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    margin-top: 4%;
+    font-size: 2vh;
+}
+
+.div_scherm .trein_info_div .singel_train_div .soort{
+    background-color: rgba(0, 0, 0, 0);
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+    color: white;
+}
+
+.div_scherm .trein_info_div .singel_train_div .loc{
+    background-color: rgba(0, 0, 0, 0);
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 4vh;
+    color: white;
+}
+
+.div_scherm .trein_info_div .singel_train_div .orig{
+    background-color: rgba(0, 0, 0, 0);
+    width:60%;
+    height: 100%;
+    position: absolute;
+    left: 20%;
+    top: 0%;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+    color: white;
 }
