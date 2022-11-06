@@ -183,11 +183,25 @@ function get_current_wheater(){
 
                 antwoord = antwoord.split(";");
 
-                document.getElementById('weer_graden_id').innerHTML = antwoord[0].slice(0,-3) + "\u00B0C " + antwoord[1];
-                document.getElementById('scherm_overlay').style.height = "0%";
+                document.getElementById('weer_graden_id').innerHTML = antwoord[0] + "\u00B0C " + antwoord[1];
+                get_berichten();
             });
         });
 }
 
 
+function get_berichten(){
+    new QWebChannel(qt.webChannelTransport, function(channel) {
+        var backend = channel.objects.backend;
+            backend.get_berichten(locatie_scherm, function(pyval) {
+                
+                for (let i = 0; i < pyval.length; i++) {
+                    base = "<button class='textvak'>" + pyval[i][0] + "<div class='naamvak'> ~" + pyval[i][1] + "</div></button>";
 
+                    document.getElementById('bericht_text_id').innerHTML = document.getElementById('bericht_text_id').innerHTML + base;
+                }
+
+                document.getElementById('scherm_overlay').style.height = "0%";
+            });
+        });
+}

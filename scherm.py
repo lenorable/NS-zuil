@@ -7,15 +7,18 @@ def get_masseges(locatie):
     conn = psycopg2.connect(connection_string)
     cursor = conn.cursor()
 
-    query = "SELECT * FROM bericht;"
+    query = "SELECT bericht, naam FROM bericht WHERE keuring = '1' AND locatie = '{}' ORDER BY datum_tijd ASC LIMIT 5;".format(locatie)
 
     cursor.execute(query)
     saves = cursor.fetchall()
     conn.close()
 
+    return_var = []
+
     for colum in saves:
-        #0 = bericht| 1 = datum_tijd | 2 = naam | 3 = locatie | 4 = keuring | 5 = datum_tijd_keuring | 6 = naam_mod | 7 = email_mod
-        print(colum[2])
+        return_var.append([colum[0], colum[1]])
+
+    return return_var
 
 def get_wheater(locatie):
     if locatie == "Utrecht":
@@ -69,3 +72,5 @@ def get_trains(locatie):
         info_lst.append(lst_in_lst)
 
     return info_lst
+
+print(get_masseges(locatie="Utrecht"))

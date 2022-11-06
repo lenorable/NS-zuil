@@ -100,7 +100,7 @@ class Backend(QtCore.QObject):
                     </div>
                 </div>
                 <div class="div_scherm">
-                    <div class="bericht_div" id="check"></div>
+                    <div class="bericht_div" id="bericht_text_id"></div>
                     <div class="trein_info_div" id="trein_info_id"></div>
                     <button class="locatie_info" id="locatie_div"></button>
                     <div class="weer_info">
@@ -143,6 +143,11 @@ class Backend(QtCore.QObject):
     def get_current_wheater(self, locatie_scherm):
         print(str(scherm.get_wheater(locatie_scherm)))
         return scherm.get_wheater(locatie_scherm)
+
+    @QtCore.pyqtSlot(str, result=list)
+    def get_berichten(self, locatie_scherm):
+        print(str(scherm.get_masseges(locatie_scherm)))
+        return scherm.get_masseges(locatie_scherm)
 
 class MainWindow(QMainWindow):
     def __init__(self):
