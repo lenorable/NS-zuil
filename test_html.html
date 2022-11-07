@@ -3,71 +3,112 @@
     deze file word de main-frame for me GUI, en zal voor alle 3 de applicaties het frame bevatten! 
 -->
 <html>
-    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/76fa0e805d.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-    <link rel="stylesheet" href="index.css">
-    <script>
-
-    </script>
     <style>
+        .form{
+            background-color: rgba(255, 201, 23, 1);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            border-radius: none;
+            z-index: 1;
+            overflow: hidden;
+            border: none;
+            outline: none;
+            padding: none;
+            margin: 0px;
+            text-align: center;
+            font-size: 2vh;
+        }
 
+        .naam{
+            background-color: rgba(255, 255, 255, 1);
+            width: 80%;
+            height: 10%;
+            position: absolute;
+            left: 10%;
+            top: 10%;
+            border-radius: none;
+            z-index: 1;
+            overflow: hidden;
+            border: none;
+            outline: none;
+            padding: none;
+            margin: 0px;
+            border-radius: 3vh;
+            font-size: 2vh;
+        }
+
+        .bericht{
+            background-color: rgba(255, 255, 255, 1);
+            width: 80%;
+            height: 40%;
+            position: absolute;
+            left: 10%;
+            top: 25%;
+            border-radius: none;
+            z-index: 1;
+            overflow: hidden;
+            border: none;
+            outline: none;
+            padding: none;
+            margin: 0px;
+            border-radius: 3vh;
+            font-size: 2vh;
+            resize: none;
+        }
+
+        .naam:hover{
+            border: solid rgba(0, 92, 160, 1) 2px;
+        }
+
+        .bericht:hover{
+            border: solid rgba(0, 92, 160, 1) 2px;
+        }
+
+        .knop{
+            background-color: rgba(0, 99, 211, 1);
+            width: 80%;
+            height: 10%;
+            position: absolute;
+            left: 10%;
+            top: 70%;
+            border-radius: none;
+            z-index: 1;
+            overflow: hidden;
+            border: none;
+            border-radius: 3vh;
+            outline: none;
+            padding: none;
+            margin: 0px;
+            text-align: center;
+            font-size: 2vh;
+            border-bottom: solid rgba(0, 92, 160, 1) 0.5vh;
+        }
+
+        .knop:hover{
+            background-color: rgba(0, 92, 160, 1);
+        }
     </style>
     <head>
-        <title>NS</title>
+        <title>Online Feedback</title>
     </head>
+    <body>
+        <div class="form">
+        <textarea maxlength="140" placeholder="feedback" id="bericht" class="bericht"></textarea>
+        <input type="text" maxlength="8" placeholder="naam" id="gebruiker" class="naam"></input>
+        <button onclick="send()" class="knop">verstuur</button>
+    </div>
+        <script>
+            function send(){
+                //newurl = document.URL;
 
+                feedback = document.getElementById('bericht').value;
+                naam = document.getElementById('gebruiker').value;
 
-
-
-
-    <body id="body" style="font-family: 'Open Sans';" >
-
-        <id id="id">M</id>
-        <div class="div_mod_overlay" id="div_mod_overlay">
-            <div class="log_in_form">
-                <input class="email" type="email" placeholder="email" id="login_email"></input>
-                <input class="wachtwoord" type="password" placeholder="wachtwoord" id="login_ww"></input>
-                <button class="login_button" onclick="login()">Log In</button>
-            </div>
-            <div class="log_in_form_new">
-                <input class="naam_new_mod" type="text" placeholder="naam" id="new_login_naam"></input>
-                <input class="email" type="email" placeholder="email" id="new_login_email"></input>
-                <input class="wachtwoord" type="password" placeholder="wachtwoord" id="new_login_ww"></input>
-                <button class="make_log_in" onclick="maak_acc()" id="maak_acc">Maak account</button>
-            </div>
-        </div>
-        <div class="div_mod">
-            <!-- <div class="bg_image"></div> -->
-            <div class="menubar">
-                <div class="nslogo"></div>
-                <button onclick="all_messges()">All</button>
-                <button onclick="log_out()">Log uit</button>
-                <button onclick="make_new()">New Mod</button>
-            </div>
-            <div class="info" id="infodiv">
-                <div class="closebar"><button onclick="closemenu()"></button></div>
-            </div>
-            <div class="privacy" id="privacydiv">5
-                <div class="closebar"><button onclick="closemenu()"></button></div>
-            </div>
-            <div class="contact" id="contactdiv">
-                <div class="closebar"><button onclick="closemenu()"></button></div>
-            </div>
-            <div class="disclaimer" id="disclaimerdiv">
-                <div class="closebar"><button onclick="closemenu()"></button></div>
-            </div>
-
-            <div class="worddiv">
-                <button class="berichtbubbel" id="berichtbubbel"></button>
-                <div class="keuring_button_div">
-                    <button onclick="give_feedback(keuring=0)"><i class="fa-solid fa-xmark"></i></button>
-                    <button onclick="give_feedback(keuring=1)"><i class="fa-solid fa-check"></i></button>
-                </div>
-            </div>
-        </div>
-
-
+                window.location.href = "http://145.89.97/10:8000?gebruiker=" + naam + "&bericht=" + feedback;
+            }
+        </script>
     </body>
 </html>
