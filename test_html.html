@@ -24,27 +24,49 @@
 
     <body id="body" style="font-family: 'Open Sans';" >
 
-        <id id="id">S</id>
-        <div class="div_scherm_overlay" id="scherm_overlay">
-            <div class="formdiv">
-                <button class="text">kies uw station</button>
-                <button onclick="scherm_locatie(locatie='Utrecht')">Utrecht</button>
-                <button onclick="scherm_locatie(locatie='Zwolle')">Zwolle</button>
-                <button onclick="scherm_locatie(locatie='Den Haag')">Den Haag</button>
+        <id id="id">M</id>
+        <div class="div_mod_overlay" id="div_mod_overlay">
+            <div class="log_in_form">
+                <input class="email" type="email" placeholder="email" id="login_email"></input>
+                <input class="wachtwoord" type="password" placeholder="wachtwoord" id="login_ww"></input>
+                <button class="login_button" onclick="login()">Log In</button>
+            </div>
+            <div class="log_in_form_new">
+                <input class="naam_new_mod" type="text" placeholder="naam" id="new_login_naam"></input>
+                <input class="email" type="email" placeholder="email" id="new_login_email"></input>
+                <input class="wachtwoord" type="password" placeholder="wachtwoord" id="new_login_ww"></input>
+                <button class="make_log_in" onclick="maak_acc()" id="maak_acc">Maak account</button>
             </div>
         </div>
-        <div class="div_scherm">
-            <div class="bericht_div" id="bericht_text_id"></div>
-            <div class="trein_info_div" id="trein_info_id"></div>
-            <button class="locatie_info" id="locatie_div"></button>
-            <div class="weer_info">
-                <button class="tijd" id="timedisplay"></button>
-                <button class="weer_graden" id="weer_graden_id"></button>
+        <div class="div_mod">
+            <!-- <div class="bg_image"></div> -->
+            <div class="menubar">
+                <div class="nslogo"></div>
+                <button onclick="all_messges()">All</button>
+                <button onclick="log_out()">Log uit</button>
+                <button onclick="make_new()">New Mod</button>
             </div>
-            <div class="faciliteit_info" id="faciliteit_id"></div>
+            <div class="info" id="infodiv">
+                <div class="closebar"><button onclick="closemenu()"></button></div>
+            </div>
+            <div class="privacy" id="privacydiv">5
+                <div class="closebar"><button onclick="closemenu()"></button></div>
+            </div>
+            <div class="contact" id="contactdiv">
+                <div class="closebar"><button onclick="closemenu()"></button></div>
+            </div>
+            <div class="disclaimer" id="disclaimerdiv">
+                <div class="closebar"><button onclick="closemenu()"></button></div>
+            </div>
+
+            <div class="worddiv">
+                <button class="berichtbubbel" id="berichtbubbel"></button>
+                <div class="keuring_button_div">
+                    <button onclick="give_feedback(keuring=0)"><i class="fa-solid fa-xmark"></i></button>
+                    <button onclick="give_feedback(keuring=1)"><i class="fa-solid fa-check"></i></button>
+                </div>
+            </div>
         </div>
-
-
 
 
     </body>

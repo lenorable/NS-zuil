@@ -349,6 +349,258 @@
 }
 
 /* moderatie -------------------------------------------------------*/
+.div_mod_overlay{
+    background-color: rgba(230, 230, 233, 1);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+    display: block;
+    transition: 1s;
+}
+
+.log_in_form{
+    background-color: rgba(255, 201, 31, 1);
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    left: 25%;
+    top: 20%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.email{
+    background-color: rgba(255, 255, 255, 1);
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.email:hover{
+    border: solid rgba(0, 92, 160, 1) 2px;
+}
+
+.wachtwoord{
+    background-color: rgba(255, 255, 255, 1);
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    left: 10%;
+    top: 35%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.wachtwoord:hover{
+    border: solid rgba(0, 92, 160, 1) 2px;
+}
+
+.login_button{
+    background-color: rgba(0, 99, 211, 1);
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    left: 10%;
+    top: 65%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+    color: white;
+    cursor: pointer;
+    border-bottom: solid rgba(0, 92, 160, 1) 0.5vh;
+}
+
+.login_button:hover{
+    background-color: rgba(0, 92, 160, 1);
+}
+
+.log_in_form_new{
+    background-color: rgba(255, 201, 31, 1);
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    left: 25%;
+    top: 20%;
+    z-index: 3;
+    overflow: show;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+    display: none;
+}
+
+.log_in_form_new .email{
+    background-color: rgba(255, 255, 255, 1);
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    left: 10%;
+    top: 28%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.log_in_form_new .email:hover{
+    border: solid rgba(0, 92, 160, 1) 2px;
+}
+
+.log_in_form_new .naam_new_mod{
+    background-color: rgba(255, 255, 255, 1);
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    left: 10%;
+    top: 4%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.log_in_form_new .naam_new_mod:hover{
+    border: solid rgba(0, 92, 160, 1) 2px;
+}
+
+.log_in_form_new .wachtwoord{
+    background-color: rgba(255, 255, 255, 1);
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    left: 10%;
+    top: 52%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+}
+
+.log_in_form_new .wachtwoord:hover{
+    border: solid rgba(0, 92, 160, 1) 2px;
+}
+
+.make_log_in{
+    background-color: rgba(0, 99, 211, 1);
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    left: 10%;
+    top: 76%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+    color: white;
+    cursor: pointer;
+    border-bottom: solid rgba(0, 92, 160, 1) 0.5vh;
+}
+
+.make_log_in:hover{
+    background-color: rgba(0, 92, 160, 1);
+}
+
+.log_in_form_new .close{
+    background-color: rgba(0, 99, 211, 1);
+    width: 50%;
+    height: 20%;
+    position: absolute;
+    left: 25%;
+    top: 104%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    font-size: 2vh;
+    color: white;
+    cursor: pointer;
+    border-bottom: solid rgba(0, 92, 160, 1) 0.5vh;
+}
+
+.log_in_form_new .close:hover{
+    background-color: rgba(0, 92, 160, 1);
+}
+
+.log_in_form_new .show_pass{
+    background-color: rgba(0, 0, 0, 0);
+    width: 15%;
+    height: 20%;
+    position: absolute;
+    left: 75%;
+    top: 52%;
+    z-index: 3;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: 0px;
+    cursor: pointer;
+    color: rgba(0, 99, 211, 1);
+    font-size: 4vh;
+}
+
+.log_in_form_new .show_pass:hover{
+    color: rgba(0, 92, 160, 1);
+}
+
 .div_mod{
     background-color: rgba(230, 230, 233, 1);
     width: 100%;

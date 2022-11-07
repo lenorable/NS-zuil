@@ -1,3 +1,4 @@
+from email.message import EmailMessage
 import Zuil
 import moderatie
 import scherm
@@ -56,19 +57,34 @@ class Backend(QtCore.QObject):
         elif usecase == "M":
             code = """
                 <id id="id">M</id>
+                <div class="div_mod_overlay" id="div_mod_overlay">
+                    <div class="log_in_form">
+                        <input class="email" type="email" placeholder="email" id="login_email"></input>
+                        <input class="wachtwoord" type="password" placeholder="wachtwoord" id="login_ww"></input>
+                        <button class="login_button" onclick="login()">Log In</button>
+                    </div>
+                    <div class="log_in_form_new" id="log_in_new_id">
+                        <input class="naam_new_mod" type="text" placeholder="naam" id="new_login_naam" maxlength="8"></input>
+                        <input class="email" type="email" placeholder="email" id="new_login_email" maxlength="25"></input>
+                        <input class="wachtwoord" type="password" placeholder="wachtwoord" id="new_login_ww" maxlength="25"></input>
+                        <button class="make_log_in" onclick="maak_acc()" id="maak_acc">Maak account</button>
+                        
+                        <!-- <button class="show_pass" onclick="show_new_mod()"><i class="fa-solid fa-eye"></i></button> -->
+                        <button class="close" onclick="close_new_mod()">close</button>
+                    </div>
+                </div>
                 <div class="div_mod">
                     <!-- <div class="bg_image"></div> -->
                     <div class="menubar">
                         <div class="nslogo"></div>
-                        <button onclick="info()">Info</button>
-                        <button onclick="privacy()">Privacy</button>
-                        <button onclick="contact()">Contact</button>
-                        <button onclick="disclaimer()">Disclaimer</button>
+                        <!-- <button onclick="all_messges()">All</button> -->
+                        <button onclick="log_out()">Log uit</button>
+                        <button onclick="make_new()">New Mod</button>
                     </div>
                     <div class="info" id="infodiv">
                         <div class="closebar"><button onclick="closemenu()"></button></div>
                     </div>
-                    <div class="privacy" id="privacydiv">
+                    <div class="privacy" id="privacydiv">5
                         <div class="closebar"><button onclick="closemenu()"></button></div>
                     </div>
                     <div class="contact" id="contactdiv">
@@ -81,8 +97,8 @@ class Backend(QtCore.QObject):
                     <div class="worddiv">
                         <button class="berichtbubbel" id="berichtbubbel"></button>
                         <div class="keuring_button_div">
-                            <button onclick="give_feedback(keuring=0, naam_mod='Admin')"><i class="fa-solid fa-xmark"></i></button>
-                            <button onclick="give_feedback(keuring=1, naam_mod='Admin')"><i class="fa-solid fa-check"></i></button>
+                            <button onclick="give_feedback(keuring=0)"><i class="fa-solid fa-xmark"></i></button>
+                            <button onclick="give_feedback(keuring=1)"><i class="fa-solid fa-check"></i></button>
                         </div>
                     </div>
                 </div>
@@ -148,6 +164,16 @@ class Backend(QtCore.QObject):
     def get_berichten(self, locatie_scherm):
         print(str(scherm.get_masseges(locatie_scherm)))
         return scherm.get_masseges(locatie_scherm)
+
+    @QtCore.pyqtSlot(str, str, result=str)
+    def login_between(self, email, wachtwoord):
+        print(str(moderatie.login_mod(email, wachtwoord)))
+        return moderatie.login_mod(email, wachtwoord)
+
+    @QtCore.pyqtSlot(str, str, str, result=str)
+    def login_new_between(self, naam, wachtwoord, email):
+        print(str(moderatie.maak_mod(naam, wachtwoord, email)))
+        return moderatie.maak_mod(naam, wachtwoord, email)
 
 class MainWindow(QMainWindow):
     def __init__(self):

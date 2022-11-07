@@ -17,7 +17,7 @@ def login_mod(email_mod, wachtwoord_mod):
         if wachtwoord_mod == wachtwoord:
             return saves[0][0]
 
-    return False
+    return 'False'
 
 def get_bericht():
     connection_string = "host='localhost' dbname='berichten' user='postgres' password='k6LfYEIszD1cOP29qTvx'"
@@ -60,7 +60,7 @@ def keuring(keuring, mod_naam, bericht):
 
     return "alright"
 
-def maak_mod(mod_naam, nieuwe_naam, nieuw_ww, nieuw_email):
+def maak_mod(nieuwe_naam, nieuw_ww, nieuw_email):
     connection_string = "host='localhost' dbname='berichten' user='postgres' password='k6LfYEIszD1cOP29qTvx'"
     conn = psycopg2.connect(connection_string)
     cursor = conn.cursor()
@@ -81,10 +81,10 @@ def maak_mod(mod_naam, nieuwe_naam, nieuw_ww, nieuw_email):
             conn.commit()
             conn.close()
 
-            return "oke"
+            return "True"
         else:
             conn.close()
-            return "vul alles in"
+            return "False"
     else:
         conn.close()
-        return "naam niet berschrikbaar"
+        return "False"

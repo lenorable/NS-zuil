@@ -87,7 +87,8 @@ function stuur(){
 
 // functies voor moderatie ----------------------------------------------------------------------------------------------
 
-var curren_bericht = ""
+var curren_bericht = "";
+var naam_mod = "";
 
 function get_bericht(){
     new QWebChannel(qt.webChannelTransport, function(channel) {
@@ -99,12 +100,77 @@ function get_bericht(){
         });
 }
 
-function give_feedback(keuring, naam_mod){
+function give_feedback(keuring){
     new QWebChannel(qt.webChannelTransport, function(channel) {
         var backend = channel.objects.backend;
             backend.give_feedback(keuring, naam_mod, curren_bericht);
             get_bericht();
         });
+
+}
+
+function login(){
+    var email = document.getElementById('login_email').value;
+    var wachtwoord = document.getElementById('login_ww').value;
+
+    new QWebChannel(qt.webChannelTransport, function(channel) {
+        var backend = channel.objects.backend;
+            backend.login_between(email, wachtwoord, function(pyval) {
+                if (pyval == 'False'){
+                    alert("foute gegevens");
+                } else {
+                    naam_mod = pyval;
+                    document.getElementById('login_email').value = '';
+                    document.getElementById('login_ww').value = '';
+                    document.getElementById('div_mod_overlay').style.height = '0%';
+                }
+            });
+        });
+
+}
+
+function maak_acc(){
+    var email = document.getElementById('new_login_email').value;
+    var wachtwoord = document.getElementById('new_login_ww').value;
+    var naam = document.getElementById('new_login_naam').value;
+
+    new QWebChannel(qt.webChannelTransport, function(channel) {
+        var backend = channel.objects.backend;
+            backend.login_new_between(naam, wachtwoord, email, function(pyval) {
+                if (pyval == false){
+                    alert("error");
+                } else {
+                    alert("aangemaakt");
+                    email = document.getElementById('new_login_email').value = "";
+                    wachtwoord = document.getElementById('new_login_ww').value = "";
+                    naam = document.getElementById('new_login_naam').value = "";
+
+                    document.getElementById('div_mod_overlay').style.height = '0%';
+                    document.getElementById('log_in_new_id').style.display = 'display';
+                }
+            });
+        });
+}
+
+function make_new(){
+    document.getElementById('div_mod_overlay').style.height = '100%';
+    document.getElementById('log_in_new_id').style.display = 'block';
+}
+
+function log_out(){
+    location.reload();
+}
+
+function close_new_mod(){
+    email = document.getElementById('new_login_email').value = "";
+    wachtwoord = document.getElementById('new_login_ww').value = "";
+    naam = document.getElementById('new_login_naam').value = "";
+
+    document.getElementById('div_mod_overlay').style.height = '0%';
+    document.getElementById('log_in_new_id').style.display = 'display';
+}
+
+function all_messges(){
 
 }
 
@@ -187,8 +253,9 @@ function get_current_wheater(){
                 antwoord = pyval;
 
                 antwoord = antwoord.split(";");
+                weer = antwoord[0].split(".")
 
-                document.getElementById('weer_graden_id').innerHTML = antwoord[0] + "\u00B0C " + antwoord[1];
+                document.getElementById('weer_graden_id').innerHTML = weer[0] + "\u00B0C " + antwoord[1];
                 get_current_trains();
             });
         });
@@ -211,9 +278,9 @@ function get_berichten(){
                     }
 
                     berichten_fresh = pyval;
-                    document.getElementById('scherm_overlay').style.height = "0%";
-
                 };
+
+                document.getElementById('scherm_overlay').style.height = "0%";
             });
         });
 }
