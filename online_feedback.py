@@ -12,14 +12,18 @@ from cryptography.fernet import Fernet
 
 api = Flask(__name__)
 
-def inputs(bericht, gebruiker):
+def locatie_fun():
+    gekozen_locaties = ["Den Haag","Utrecht","Zwolle"]
+    locatie = gekozen_locaties[random.randint(0,2)]
+
+    return locatie
+
+def inputs(bericht, locatie, gebruiker):
     datum_nu = datetime.today()
     tijd_nu = datetime.now()
-    gekozen_locaties = ["Den Haag","Utrecht","Zwolle"]
 
     tijd = tijd_nu.strftime("%I:%M:%S %p")
     datum = datum_nu.strftime("%Y%m%d")
-    locatie = gekozen_locaties[random.randint(0,2)]
 
     datum_tijd = datum + " " + tijd
 
@@ -36,11 +40,18 @@ def inputs(bericht, gebruiker):
 
     return bericht, datum, tijd, gebruiker, locatie
 
-@api.route('/companies', methods=['GET', 'POST'])
+@api.route('/', methods=['GET', 'POST'])
 def get_companies():
-    gebruiker = request.args.get('gebruiker')
-    bericht = request.args.get('bericht')
-    inputs(bericht, gebruiker)
+    gebruiker = str(request.args.get('gebruiker'))
+    bericht = str(request.args.get('bericht'))
+    locatie = str(request.args.get('locatie'))
+    if bericht != 'None':
+        if gebruiker == 'None':
+            inputs(bericht, locatie, gebruiker="")
+        else:
+            inputs(bericht, locatie, gebruiker)
+
+    locatie_from_fun = locatie_fun()
 
     html = """
             <html>
@@ -137,23 +148,27 @@ def get_companies():
             </head>
             <body>
                 <div class="form">
-                <textarea maxlength="140" placeholder="feedback" id="bericht" class="bericht"></textarea>
+                <textarea maxlength="140" placeholder="feedback voor """ + locatie_from_fun + """ " id="bericht" class="bericht"></textarea>
                 <input type="text" maxlength="8" placeholder="naam" id="gebruiker" class="naam"></input>
                 <button onclick="send()" class="knop">verstuur</button>
             </div>
                 <script>
                     function send(){
-                        //newurl = document.URL;
+                        newurl = document.URL;
 
                         feedback = document.getElementById('bericht').value;
                         naam = document.getElementById('gebruiker').value;
 
-                        window.location.href = "http://192.168.178.143:8000/companies?gebruiker=" + naam + "&bericht=" + feedback;
+                        goodurl = newurl.split("?");
+
+                        window.location.href = goodurl[0] + "?gebruiker=" + naam + "&bericht=" + feedback + "&locatie=" + " """ + locatie_from_fun + """ ";
                     }
                 </script>
             </body>
         </html>
     """
+
+    print(html)
 
     return html
 
