@@ -167,9 +167,7 @@ def get_companies():
             </body>
         </html>
     """
-
-    print(html)
-
+    
     return html
 
 if __name__ == '__main__':

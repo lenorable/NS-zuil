@@ -229,7 +229,7 @@ function get_current_trains(){
                         base = base + "SPR</button><button class='orig'>";
                     }
 
-                    base = base + pyval[i][0];
+                    base = base + "Vanaf: " + pyval[i][0];
 
                     if (pyval[i][2] == 'ON_STATION'){
                         base = base + "</button><button class='loc'><i class='fa-solid fa-location-dot'></i></button></div>";
